@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.qxk.tmall.mapper.ReviewMapper">
-  <resultMap id="BaseResultMap" type="com.qxk.tmall.pojo.Review">
+<mapper namespace="com.qxk.mall.mapper.ReviewMapper">
+  <resultMap id="BaseResultMap" type="com.qxk.mall.pojo.Review">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="content" jdbcType="VARCHAR" property="content" />
     <result column="uid" jdbcType="INTEGER" property="uid" />
@@ -40,7 +40,7 @@
   <sql id="Base_Column_List">
     id, content, uid, pid, createDate
   </sql>
-  <select id="selectByExample" parameterType="com.qxk.tmall.pojo.ReviewExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.qxk.mall.pojo.ReviewExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -56,7 +56,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from review
     where id = #{id,jdbcType=INTEGER}
@@ -65,13 +65,13 @@
     delete from review
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.qxk.tmall.pojo.Review" useGeneratedKeys="true">
-    insert into review (content, uid, pid, 
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.qxk.mall.pojo.Review" useGeneratedKeys="true">
+    insert into review (content, uid, pid,
       createDate)
-    values (#{content,jdbcType=VARCHAR}, #{uid,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, 
+    values (#{content,jdbcType=VARCHAR}, #{uid,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER},
       #{createDate,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.qxk.tmall.pojo.Review" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.qxk.mall.pojo.Review" useGeneratedKeys="true">
     insert into review
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="content != null">
@@ -102,7 +102,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.qxk.tmall.pojo.Review">
+  <update id="updateByPrimaryKeySelective" parameterType="com.qxk.mall.pojo.Review">
     update review
     <set>
       <if test="content != null">
@@ -120,7 +120,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.qxk.tmall.pojo.Review">
+  <update id="updateByPrimaryKey" parameterType="com.qxk.mall.pojo.Review">
     update review
     set content = #{content,jdbcType=VARCHAR},
       uid = #{uid,jdbcType=INTEGER},

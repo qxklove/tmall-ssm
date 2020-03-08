@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.qxk.tmall.mapper.OrderMapper">
-  <resultMap id="BaseResultMap" type="com.qxk.tmall.pojo.Order">
+<mapper namespace="com.qxk.mall.mapper.OrderMapper">
+  <resultMap id="BaseResultMap" type="com.qxk.mall.pojo.Order">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="orderCode" jdbcType="VARCHAR" property="orderCode" />
     <result column="address" jdbcType="VARCHAR" property="address" />
@@ -47,10 +47,10 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, orderCode, address, post, receiver, mobile, userMessage, createDate, payDate, 
+    id, orderCode, address, post, receiver, mobile, userMessage, createDate, payDate,
     deliveryDate, confirmDate, uid, sid, status
   </sql>
-  <select id="selectByExample" parameterType="com.qxk.tmall.pojo.OrderExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.qxk.mall.pojo.OrderExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -66,7 +66,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from order_
     where id = #{id,jdbcType=INTEGER}
@@ -75,19 +75,19 @@
     delete from order_
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.qxk.tmall.pojo.Order" useGeneratedKeys="true">
-    insert into order_ (orderCode, address, post, 
-      receiver, mobile, userMessage, 
-      createDate, payDate, deliveryDate, 
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.qxk.mall.pojo.Order" useGeneratedKeys="true">
+    insert into order_ (orderCode, address, post,
+      receiver, mobile, userMessage,
+      createDate, payDate, deliveryDate,
       confirmDate, uid, sid, status
       )
-    values (#{orderCode,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{post,jdbcType=VARCHAR}, 
-      #{receiver,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{userMessage,jdbcType=VARCHAR}, 
-      #{createDate,jdbcType=TIMESTAMP}, #{payDate,jdbcType=TIMESTAMP}, #{deliveryDate,jdbcType=TIMESTAMP}, 
+    values (#{orderCode,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{post,jdbcType=VARCHAR},
+      #{receiver,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{userMessage,jdbcType=VARCHAR},
+      #{createDate,jdbcType=TIMESTAMP}, #{payDate,jdbcType=TIMESTAMP}, #{deliveryDate,jdbcType=TIMESTAMP},
       #{confirmDate,jdbcType=TIMESTAMP}, #{uid,jdbcType=INTEGER}, #{sid,jdbcType=INTEGER}, #{status,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.qxk.tmall.pojo.Order" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.qxk.mall.pojo.Order" useGeneratedKeys="true">
     insert into order_
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="orderCode != null">
@@ -172,7 +172,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.qxk.tmall.pojo.Order">
+  <update id="updateByPrimaryKeySelective" parameterType="com.qxk.mall.pojo.Order">
     update order_
     <set>
       <if test="orderCode != null">
@@ -214,7 +214,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.qxk.tmall.pojo.Order">
+  <update id="updateByPrimaryKey" parameterType="com.qxk.mall.pojo.Order">
     update order_
     set orderCode = #{orderCode,jdbcType=VARCHAR},
       address = #{address,jdbcType=VARCHAR},

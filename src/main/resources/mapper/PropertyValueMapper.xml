@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.qxk.tmall.mapper.PropertyValueMapper">
-  <resultMap id="BaseResultMap" type="com.qxk.tmall.pojo.PropertyValue">
+<mapper namespace="com.qxk.mall.mapper.PropertyValueMapper">
+  <resultMap id="BaseResultMap" type="com.qxk.mall.pojo.PropertyValue">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="pid" jdbcType="INTEGER" property="pid" />
     <result column="ptid" jdbcType="INTEGER" property="ptid" />
@@ -39,7 +39,7 @@
   <sql id="Base_Column_List">
     id, pid, ptid, value
   </sql>
-  <select id="selectByExample" parameterType="com.qxk.tmall.pojo.PropertyValueExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.qxk.mall.pojo.PropertyValueExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -55,7 +55,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from propertyvalue
     where id = #{id,jdbcType=INTEGER}
@@ -64,13 +64,13 @@
     delete from propertyvalue
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.qxk.tmall.pojo.PropertyValue" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.qxk.mall.pojo.PropertyValue" useGeneratedKeys="true">
     insert into propertyvalue (pid, ptid, value
       )
     values (#{pid,jdbcType=INTEGER}, #{ptid,jdbcType=INTEGER}, #{value,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.qxk.tmall.pojo.PropertyValue" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.qxk.mall.pojo.PropertyValue" useGeneratedKeys="true">
     insert into propertyvalue
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="pid != null">
@@ -95,7 +95,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.qxk.tmall.pojo.PropertyValue">
+  <update id="updateByPrimaryKeySelective" parameterType="com.qxk.mall.pojo.PropertyValue">
     update propertyvalue
     <set>
       <if test="pid != null">
@@ -110,7 +110,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.qxk.tmall.pojo.PropertyValue">
+  <update id="updateByPrimaryKey" parameterType="com.qxk.mall.pojo.PropertyValue">
     update propertyvalue
     set pid = #{pid,jdbcType=INTEGER},
       ptid = #{ptid,jdbcType=INTEGER},

@@ -10,7 +10,7 @@
     <!--启动注解识别-->
     <context:annotation-config/>
 
-    <context:component-scan base-package="com.qxk.tmall.controller">
+    <context:component-scan base-package="com.qxk.mall.controller">
         <context:include-filter type="annotation"
                                 expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
@@ -34,11 +34,11 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/fore*"/>
-            <bean class="com.qxk.tmall.interceptor.LoginInterceptor"/>
+            <bean class="com.qxk.mall.interceptor.LoginInterceptor"/>
         </mvc:interceptor>
         <mvc:interceptor>
             <mvc:mapping path="/fore*"/>
-            <bean class="com.qxk.tmall.interceptor.OtherInterceptor"/>
+            <bean class="com.qxk.mall.interceptor.OtherInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
 </beans>

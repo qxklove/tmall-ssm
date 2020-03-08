@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.qxk.tmall.mapper.OrderItemMapper">
-  <resultMap id="BaseResultMap" type="com.qxk.tmall.pojo.OrderItem">
+<mapper namespace="com.qxk.mall.mapper.OrderItemMapper">
+  <resultMap id="BaseResultMap" type="com.qxk.mall.pojo.OrderItem">
     <id column="id" jdbcType="INTEGER" property="id" />
     <!--<result column="sid" jdbcType="INTEGER" property="sid" />-->
     <result column="pid" jdbcType="INTEGER" property="pid" />
@@ -41,7 +41,7 @@
   <sql id="Base_Column_List">
     id, pid, oid, uid, number
   </sql>
-  <select id="selectByExample" parameterType="com.qxk.tmall.pojo.OrderItemExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.qxk.mall.pojo.OrderItemExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -57,7 +57,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from orderitem
     where id = #{id,jdbcType=INTEGER}
@@ -66,13 +66,13 @@
     delete from orderitem
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.qxk.tmall.pojo.OrderItem" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.qxk.mall.pojo.OrderItem" useGeneratedKeys="true">
     insert into orderitem (pid, oid, uid,
       number)
     values (#{pid,jdbcType=INTEGER}, #{oid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER},
       #{number,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.qxk.tmall.pojo.OrderItem" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.qxk.mall.pojo.OrderItem" useGeneratedKeys="true">
     insert into orderitem
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <!--<if test="sid != null">-->
@@ -109,7 +109,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.qxk.tmall.pojo.OrderItem">
+  <update id="updateByPrimaryKeySelective" parameterType="com.qxk.mall.pojo.OrderItem">
     update orderitem
     <set>
       <if test="pid != null">
@@ -127,7 +127,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.qxk.tmall.pojo.OrderItem">
+  <update id="updateByPrimaryKey" parameterType="com.qxk.mall.pojo.OrderItem">
     update orderitem
     set pid = #{pid,jdbcType=INTEGER},
       oid = #{oid,jdbcType=INTEGER},

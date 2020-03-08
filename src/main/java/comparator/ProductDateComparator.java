@@ -6,7 +6,7 @@ package comparator;
 
 import java.util.Comparator;
 
-import com.qxk.tmall.pojo.Product;
+import com.qxk.mall.pojo.Product;
 
 
 public class ProductDateComparator implements Comparator<Product>{

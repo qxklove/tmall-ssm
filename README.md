@@ -1,6 +1,7 @@
-# 仿天猫购物网站
+# 购物网站
 
 ## 项目介绍
+模仿教程实现的购物网站
 
 ### 功能介绍
 
@@ -34,9 +35,9 @@ JDK8.0 + MySQL + Tomcat
 
 #### 使用方法
 
-1. git clone `https://github.com/qxklove/tmall.git`
+1. git clone `https://github.com/qxklove/qxk_mall_ssm.git`
 2. 使用IDEA导入打开
-3. 导入sql文件tmall_ssm.sql
+3. 导入sql文件tmall.sql
 4. 部署Tomcat并启动
 
 ---
