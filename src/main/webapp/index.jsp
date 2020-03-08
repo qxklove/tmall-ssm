@@ -1,0 +1,7 @@
+
+
+
+
+<%
+    response.sendRedirect("forehome");
+%>
